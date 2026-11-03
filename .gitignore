@@ -223,4 +223,7 @@ lightning_logs/
 wandb/
 .lock
 *gradio*
-kg_client/
+kg_client/data/
+models/
+*.zip
+data/
