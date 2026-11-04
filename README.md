@@ -1,3 +1,41 @@
+# LOREN: running the code (assessment)
+
+I ran LOREN veracity prediction with the pretrained RoBERTa-large checkpoint on the FEVER eval set, on a Google Colab T4 GPU.
+
+## Results
+- **Full eval set (19,998 claims):** Label Accuracy 81.1%, FEVER Score 78.8%
+- **Screenshot run (first 1,000 claims):** Label Accuracy 81.1%, FEVER Score 79.1%
+
+The screenshots below come from a re-run on the first 1,000 claims, because the Colab session reset after my full run.
+
+![Run](screenshots/08_run.png)
+![Metrics](screenshots/15_metrics_final.png)
+
+## Setup steps
+![GPU](screenshots/01_gpu.png)
+![Install](screenshots/02_setup.png)
+![Model download](screenshots/03_model_download.png)
+![Model files](screenshots/04_model_files.png)
+![Data](screenshots/05_data.png)
+![Patches](screenshots/06_patches.png)
+![1000-claim slice](screenshots/07_slice_1000.png)
+
+## Fixes needed for newer library versions
+The repo targets old library versions, so I made these changes:
+1. Pinned `transformers<5` (the newer tokenizer lacks `build_inputs_with_special_tokens`)
+2. Installed missing packages: `gitpython`, `rouge-score`, `pytorch-lightning`, `ujson`
+3. `cached_property` is now imported from `functools`
+4. `AdamW` is now imported from `torch.optim`
+5. `--n_gpu` argument now has `type=int`
+6. `init_weights()` changed to `post_init()` in the checker models
+7. `fever_scorer.py` skips gold claims without a prediction (needed to score a subset)
+8. The data zip unpacks to `data/data/`, so I copied it up one level
+
+## How to run (Colab, T4 GPU)
+See the notebook in this repo. Models come from the Hugging Face repo `Jiangjie/loren`, and the data from the Google Drive link in the original README below.
+
+---
+
 # LOREN
 
 Resources for our AAAI 2022 paper: "[LOREN: Logic-Regularized Reasoning for Interpretable Fact Verification](https://ojs.aaai.org/index.php/AAAI/article/view/21291)".

@@ -43,6 +43,8 @@ class FeverScorer:
                 guid = line['id']
                 evidence = line['evidence']
                 label = line['label']
+                if guid not in id2results:
+                    continue
                 id2results[guid]['evidence'] = evidence
                 id2results[guid]['label'] = label
 

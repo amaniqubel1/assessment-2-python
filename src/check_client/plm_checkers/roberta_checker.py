@@ -46,7 +46,7 @@ class RobertaChecker(BertPreTrainedModel):
         self.classifier = ClassificationHead(self.var_hidden_size, self.num_labels,
                                              config.hidden_dropout_prob)  # label embedding for y
         self.z_clf = self.classifier
-        self.init_weights()
+        self.post_init()
 
     def forward(self, claim_input_ids, claim_attention_mask, claim_token_type_ids,
                 qa_input_ids_list, qa_attention_mask_list, qa_token_type_ids_list,

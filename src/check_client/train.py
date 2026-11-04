@@ -28,7 +28,9 @@ from transformers import (
     AutoConfig,
     AutoTokenizer
 )
-from transformers import WEIGHTS_NAME, AdamW, get_linear_schedule_with_warmup
+from transformers import get_linear_schedule_with_warmup
+from torch.optim import AdamW
+WEIGHTS_NAME = "pytorch_model.bin"
 import tensorflow as tf
 from pytorch_lightning.loggers import WandbLogger
 

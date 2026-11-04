@@ -179,7 +179,7 @@ if __name__ == '__main__':
     parser.add_argument('--do_lower_case', action='store_true', default=False)
     parser.add_argument('--batch_size', '-b', default=64, type=int)
     parser.add_argument('--seed', default=42)
-    parser.add_argument('--n_gpu', default=4)
+    parser.add_argument('--n_gpu', default=1, type=int)
 
     args = parser.parse_args()
 
