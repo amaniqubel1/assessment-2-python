@@ -32,7 +32,7 @@ The repo targets old library versions, so I made these changes:
 8. The data zip unpacks to `data/data/`, so I copied it up one level
 
 ## How to run (Colab, T4 GPU)
-See the notebook in this repo. Models come from the Hugging Face repo `Jiangjie/loren`, and the data from the Google Drive link in the original README below.
+See [run_loren.ipynb](run_loren.ipynb) in this repo. Models come from the Hugging Face repo `Jiangjie/loren`, and the data from the Google Drive link in the original README below.
 
 ---
 
